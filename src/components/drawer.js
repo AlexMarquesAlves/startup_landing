@@ -30,7 +30,7 @@ export default function Drawer({
         {...props}
       >
         {closeButton && (
-          <Box as="div" onCLick={toggleHandler} sx={closeBtnStyle}>
+          <Box as="div" onClick={toggleHandler} sx={closeBtnStyle}>
             {closeButton}
           </Box>
         )}
@@ -39,7 +39,7 @@ export default function Drawer({
       <Box
         className="drawer__handler"
         style={{ display: "inline-block" }}
-        onCLick={toggleHandler}
+        onClick={toggleHandler}
       >
         {drawerHandler}
       </Box>
