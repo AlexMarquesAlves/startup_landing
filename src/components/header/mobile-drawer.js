@@ -32,7 +32,52 @@ const social = [
 ];
 
 export default function MobileDrawer() {
-  return <Drawer></Drawer>;
+  const [isDrawerOpen, setIsDrawerOpen] = useState(false);
+
+  return (
+    <Drawer
+      width="320px"
+      drawerHandler={
+        <Box sx={styles.handler}>
+          <IoMdMenu size="26px" />
+        </Box>
+      }
+      open={isDrawerOpen}
+      toggleHandler={() => setIsDrawerOpen((prevState) => !prevState)}
+      closeButton={<IoMdClose size="24px" color="#000" />}
+      drawerStyle={styles.drawer}
+      closeButtonStyle={styles.close}
+    >
+      <Scrollbars autoHide>
+        <Box sx={styles.content}>
+          <Box sx={styles.menu}>
+            {menuItems.map((menuItem, i) => (
+              <Link
+                key={i}
+                activeClass="active"
+                to={menuItem.path}
+                spy={true}
+                smooth={true}
+                offset={-70}
+                duration={500}
+              >
+                {menuItem.label}
+              </Link>
+            ))}
+          </Box>
+          <Box sx={styles.menuFooter}>
+            <Box sx={styles.social}>
+              {social.map((socialItem, i) => (
+                <Box as="span" key={i} sx={styles.social.icon}>
+                  <Link to={socialItem.path}>{socialItem.icon}</Link>
+                </Box>
+              ))}
+            </Box>
+          </Box>
+        </Box>
+      </Scrollbars>
+    </Drawer>
+  );
 }
 
 const styles = {
