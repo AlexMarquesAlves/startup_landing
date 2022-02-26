@@ -8,7 +8,32 @@ export default function TextFeature({
   btnName,
   btnURL = "#",
 }) {
-  return <Box sx={styles.card}></Box>;
+  return (
+    <Box sx={styles.card}>
+      <Box sx={styles.wrapper}>
+        <Text as="p" sx={styles.wrapper.subTitle}>
+          {subTitle}
+        </Text>
+        <Heading as="h2" sx={styles.wrapper.title}>
+          {title}
+        </Heading>
+      </Box>
+
+      {description && (
+        <Text as="p" sx={styles.description} className="description">
+          {description}
+        </Text>
+      )}
+
+      {btnName && (
+        <Link href={btnURL} variant="default">
+          <Button variant="primary" arial-label={btnName}>
+            {btnName}
+          </Button>
+        </Link>
+      )}
+    </Box>
+  );
 }
 
 const styles = {
