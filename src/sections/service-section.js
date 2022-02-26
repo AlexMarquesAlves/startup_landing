@@ -45,13 +45,54 @@ const data = {
 };
 
 export default function ServiceSection() {
+  const handleClick = (e) => {
+    e.preventDefault();
+
+    setVideoOpen(true);
+  };
   return (
     <section
       sx={{
         variant: "section.services",
       }}
     >
-      <Container></Container>
+      <Container sx={styles.containerBox}>
+        <Box sx={styles.thumbnail}>
+          <Image src={ServiceThumb} alt="Thumbnail"></Image>
+          <Button
+            sx={styles.videoBtn}
+            onClick={handleClick}
+            arial-label="Play Button"
+          >
+            <span>
+              <IoIosPlay />
+            </span>
+          </Button>
+          <Box sx={styles.shapeBox}>
+            <Image src={shapePattern} alt="shape"></Image>
+          </Box>
+        </Box>
+        <Box sx={styles.contentBox}>
+          <TextFeature subTitle={data.subTitle} title={data.title} />
+
+          <Grid sx={styles.grid}>
+            {data.features.map((feature) => (
+              <Box sx={styles.card} key={feature.id}>
+                <Image
+                  src={feature.imgSrc}
+                  alt={feature.altText}
+                  sx={styles.icon}
+                />
+                <Box sx={styles.wrapper}>
+                  <Heading sx={styles.wrapper.title}>{feature.title} </Heading>
+                  <Text sx={styles.wrapper.subTitle}>{feature.text} </Text>
+                </Box>
+              </Box>
+            ))}
+          </Grid>
+        </Box>
+      </Container>
+      <ModalVideo />
     </section>
   );
 }
