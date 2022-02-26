@@ -45,7 +45,13 @@ const data = [
 
 export default function KeyFeature() {
   return (
-   <h1>Key Feature</h1>
+   <section id='feature' sx{{
+     variant: 'section.keyFeature'
+   }}>
+    <Container>
+      <SectionHeader />
+    </Container>
+   </section>
   );
 }
 
