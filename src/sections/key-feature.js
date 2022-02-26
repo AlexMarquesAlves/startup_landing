@@ -53,7 +53,7 @@ export default function KeyFeature() {
     >
       <Container>
         <SectionHeader
-          slogan="whats the function"
+          slogan="what's the function"
           title="Meet the feature of our product"
         />
 
