@@ -15,7 +15,27 @@ const data = {
 };
 
 export default function CoreFeature() {
-  return <section sx={{ variant: "section.coreFeature" }}></section>;
+  return (
+    <section sx={{ variant: "section.coreFeature" }}>
+      <Container sx={styles.containerBox}>
+        <Box sx={styles.contentBox}>
+          <TextFeature
+            subTitle={data.subTitle}
+            title={data.title}
+            description={data.description}
+            btnName={data.btnName}
+            btnURL={data.btnURL}
+          />
+        </Box>
+        <Box sx={styles.thumbnail}>
+          <Image src={FeatureThumb} alt="Thumbnail" />
+          <Box sx={styles.shapeBox}>
+            <Image src={shapePattern} alt="Shape" />
+          </Box>
+        </Box>
+      </Container>
+    </section>
+  );
 }
 
 const styles = {
