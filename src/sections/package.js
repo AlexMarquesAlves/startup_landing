@@ -293,7 +293,14 @@ export default function Package() {
 
         <Flex sx={styles.buttonGroup}>
           <Box sx={styles.buttonGroupInner}>
-            <button className={"active"}></button>
+            <button
+              className={state.active === "monthly" ? "active" : ""}
+              type="button"
+              aria-label="Monthly"
+              onClick={() => handlePricingPlan("monthly")}
+            >
+              Monthly Plan
+            </button>
           </Box>
         </Flex>
       </Container>
