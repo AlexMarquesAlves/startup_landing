@@ -241,6 +241,24 @@ const responsive = {
 
 export default function Package() {
   const { monthly, annual } = packages;
+  const [state, setState] = useState({
+    active: "monthly",
+    pricingPlan: monthly,
+  });
+
+  const handlePricingPlan = (plan) => {
+    if (plan === "annual") {
+      setState({
+        active: "annual",
+        pricingPlan: annual,
+      });
+    } else {
+      setState({
+        active: "monthly",
+        pricingPlan: monthly,
+      });
+    }
+  };
 
   const sliderParams = {
     additionalTransfrom: 0,
@@ -265,7 +283,22 @@ export default function Package() {
     sliderClass: "",
   };
 
-  return <section id="pricing" sx={{ variant: "section.pricing" }}></section>;
+  return (
+    <section id="pricing" sx={{ variant: "section.pricing" }}>
+      <Container>
+        <SectionHeader
+          slogan={"Pricing Plan"}
+          title={"Choose your pricing plan"}
+        />
+
+        <Flex sx={styles.buttonGroup}>
+          <Box sx={styles.buttonGroupInner}>
+            <button className={"active"}></button>
+          </Box>
+        </Flex>
+      </Container>
+    </section>
+  );
 }
 
 const fadeIn = keyframes`
