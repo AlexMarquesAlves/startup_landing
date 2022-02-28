@@ -2,7 +2,31 @@ import React from "react";
 import { Flex, Box, IconButton } from "theme-ui";
 
 export default function List({ items = [], parentStyle, childStyle }) {
-  return <Box></Box>;
+  return (
+    <Box
+      as={"ul"}
+      sx={{
+        listStyleType: "none",
+        margin: 0,
+        padding: 0,
+        ...parentStyle,
+      }}
+    >
+      {items.map((item, i) => (
+        <Flex
+          key={i}
+          className={item.isAvailable ? "open" : "close"}
+          as={"li"}
+          sx={{ ...childStyle }}
+        >
+          <IconButton sx={styles.listIcon} arial-label={"list icon"}>
+            {item.icon}
+          </IconButton>
+          {item.text}
+        </Flex>
+      ))}
+    </Box>
+  );
 }
 
 const styles = {
