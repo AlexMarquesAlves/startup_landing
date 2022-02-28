@@ -1,0 +1,9 @@
+export { default as Banner } from "./banner";
+export { default as CoreFeature } from "./core-feature";
+export { default as Feature } from "./feature";
+export { default as KeyFeature } from "./key-feature";
+export { default as Package } from "./package";
+export { default as ServiceSection } from "./service-section";
+export { default as TeamSection } from "./team-section";
+export { default as TestimonialCard } from "./testimonial";
+export { default as WorkFlow } from "./workflow";
