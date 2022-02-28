@@ -19,7 +19,11 @@ const Rating = ({ rating }) => {
       );
     }
   }
-  return <h1>Rating</h1>;
+  return (
+    <div className="rating">
+      <ul>{totalRating} </ul>
+    </div>
+  );
 };
 
 export default Rating;
